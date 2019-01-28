@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.6.4)
 project(cryptoauth C)
 
-# set(CMAKE_TOOLCHAIN_FILE arm.cmake)
-# include(${CMAKE_TOOLCHAIN_FILE})
+set(CMAKE_TOOLCHAIN_FILE arm.cmake)
+include(${CMAKE_TOOLCHAIN_FILE})
 
 # Various Options for Build
 option(ATCA_HAL_KIT_HID "Include the HID HAL Driver")
