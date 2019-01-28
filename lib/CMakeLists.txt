@@ -4,6 +4,8 @@ project(cryptoauth C)
 set(CMAKE_TOOLCHAIN_FILE arm.cmake)
 include(${CMAKE_TOOLCHAIN_FILE})
 
+set(CMAKE_C_LINK_FLAGS "-mthumb --specs=nosys.specs -Wl,--gc-sections -mcpu=cortex-m4 -Wl,--entry=Reset_Handler -Wl,--cref")
+
 # Various Options for Build
 option(ATCA_HAL_KIT_HID "Include the HID HAL Driver")
 option(ATCA_HAL_I2C "Include the I2C Hal Driver - Linux & MCU only")
