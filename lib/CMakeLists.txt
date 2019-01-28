@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 2.6.4)
-project(cryptoauth)
+project(cryptoauth C)
+
+# set(CMAKE_TOOLCHAIN_FILE arm.cmake)
+# include(${CMAKE_TOOLCHAIN_FILE})
 
 # Various Options for Build
 option(ATCA_HAL_KIT_HID "Include the HID HAL Driver")
@@ -55,7 +58,7 @@ if(ATCA_PKCS11)
 set(CRYPTOAUTH_SRC ${CRYPTOAUTH_SRC} ${PKCS11_SRC})
 endif()
 
-add_library(cryptoauth SHARED ${CRYPTOAUTH_SRC} ${ATCACERT_DEF_SRC})
+add_library(cryptoauth STATIC ${CRYPTOAUTH_SRC} ${ATCACERT_DEF_SRC})
 
 # Add Remaining Sources depending on target library type
 if(ATCA_PKCS11)
@@ -83,5 +86,3 @@ target_link_libraries(cryptoauth usb-1.0)
 endif()
 target_link_libraries(cryptoauth udev rt)
 endif()
-
-
