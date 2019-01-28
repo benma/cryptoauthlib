@@ -27,8 +27,10 @@
  * THIS SOFTWARE.
  */
 
-#include <hal_delay.h>
 #include "atca_hal.h"
+
+void delay_us(const uint16_t us);
+void delay_ms(const uint16_t ms);
 
 /** \defgroup hal_ Hardware abstraction layer (hal_)
  *
